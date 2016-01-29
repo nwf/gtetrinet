@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+#
+# CDBS-based rules file for gtetrinet.
+# Copyright © Jordi Mallach <jordi@debian.org>, 2003.
+# Under the public domain.
+
+DEB_AUTO_UPDATE_DEBIAN_CONTROL = yes
+DEB_AUTO_UPDATE_LIBTOOL = yes
+DEB_AUTO_UPDATE_ACLOCAL = 1.15
+DEB_AUTO_UPDATE_AUTOMAKE = 1.15
+DEB_AUTOMAKE_ARGS += --add-missing
+DEB_AUTO_UPDATE_AUTOHEADER = 2.69
+DEB_AUTO_UPDATE_AUTOCONF = 2.69
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-ipv6 --disable-strict
+
+LDFLAGS += -Wl,-O1 -Wl,-z,defs -Wl,--as-needed
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/gnome.mk
+include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
+

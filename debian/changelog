@@ -1,0 +1,473 @@
+gtetrinet (0.7.11-3) unstable; urgency=low
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/patches/desktop_file_encoding.patch: forwarded, add header.
+
+  [ Jordi Mallach ]
+  * Switch to source format 3.0 (quilt). Stop using simple-patchsys.
+  * Bump to debhelper v8.
+  * debian/patches/werror_format-security.patch: fix build with new dpkg
+    hardening flags (closes: #643402).
+  * Bump Standards-Version to 3.9.2, with no changes needed.
+  * Update watch file, use version 3 and avoid hardcoding version numbers.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 28 Sep 2011 23:56:23 +0200
+
+gtetrinet (0.7.11-2) unstable; urgency=low
+
+  [ Loic Minier ]
+  * Add a get-orig-source target to retrieve the upstream tarball.
+
+  [ Josselin Mouette ]
+  * Regenerate control. Closes: #523540.
+
+  [ Jordi Mallach ]
+  * Update Debian menu section to Games/Blocks as per new policy.
+  * Add a Homepage field.
+  * Bump Standards-Version to 3.8.1.
+  * Update copyright and licensing information, and recode as UTF-8.
+  * Point to version 2 of the GPL in common-licenses.
+  * Wrap Build-Depends.
+  * Move to debhelper 7.
+  * Add patch desktop_file_encoding.patch to remove an obsolete Encoding
+    entry from the desktop file.
+  * Use LDFLAGS += -Wl,-O1 -Wl,-z,defs -Wl,--as-needed.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 25 Apr 2009 17:38:27 +0200
+
+gtetrinet (0.7.11-1) unstable; urgency=low
+
+  * New upstream release.
+    - game mode is now saved in GConf (closes: #344522).
+  * 10_double-free-crashes-on-start.patch: removed, applied upstream.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 15 Nov 2006 18:06:44 +0100
+
+gtetrinet (0.7.10-2) unstable; urgency=low
+
+  * Add ${misc:Depends}.
+  * Don't overwrite DEB_CONFIGURE_EXTRA_FLAGS.
+  * Drop useless debian/dirs.
+  * Quote strings properly in menu entry.
+  * Add missing libgnome2-dev (>= 2.0.0) build-dep.
+  * Bump up libgnomeui-dev build-dep to >= 2.0.0.
+  * Ship full licensing information.
+  * Bump up Debhelper compatibility level to 5.
+  * Add CDBS' simple-patchsys.
+  * New patch, 10_double-free-crashes-on-start, to fix a double free() which
+    could cause a crash the first time you started gtetrinet; GNOME #114425;
+    closes: #342820, #362687.
+
+ -- Loic Minier <lool@dooz.org>  Thu,  2 Nov 2006 15:39:15 +0100
+
+gtetrinet (0.7.10-1) unstable; urgency=high
+
+  * New upstream release.
+    - SECURITY (CVE-2006-3125, DSA-1163): fixes several index underflows.
+    - applies manpage corrections (closes: #325662).
+  * debian/control.in: Bump Standards-Version to 3.7.2.0.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat,  2 Sep 2006 14:19:36 +0200
+
+gtetrinet (0.7.9-1) unstable; urgency=low
+
+  * The "DownUnder" release.
+  * New upstream release.
+    - fixes display of non-ASCII characters on UTF-8 locales
+      (closes: #204638).
+    - should not segfault on servers with weird /list output
+      (closes: #304713).
+    - network performance fixes (closes: #306422).
+  * debian/control.in: build-depend on libgtk2.0-dev (>= 2.6).
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 29 Apr 2005 19:10:31 +1000
+
+gtetrinet (0.7.8-1) unstable; urgency=low
+
+  * New upstream release.
+    - includes blocktrix patch (closes: #285506).
+
+ -- Jordi Mallach <jordi@debian.org>  Sun, 26 Dec 2004 17:13:09 +0100
+
+gtetrinet (0.7.7-1) unstable; urgency=low
+
+  * The "Eneko Llanos and Pili Hidalgo rule!" release.
+  * New upstream release.
+  * debian/menu: fix unquoted tag in the menu entry.
+
+ -- Jordi Mallach <jordi@debian.org>  Sun, 18 Apr 2004 18:12:57 +0200
+
+gtetrinet (0.7.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/copyright: update url and add new upstream maintainer.
+  * debian/changelog: recoded as UTF-8.
+  * debian/control: moved to control.in.
+  * debian/control.in:
+    + add the GNOME Team to Uploaders.
+    + add gnome-pkg-tools and libxml-parser-perl to build-depends, remove
+      xlibs-dev.
+    + tighten debhelper to >= 4.1.87 for proper dh_gconf support.
+  * debian/postinst: removed, now handled by dh_gconf.
+  * debian/rules: include the uploaders makefile.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 16 Apr 2004 20:46:27 +0200
+
+gtetrinet (0.7.5-1) unstable; urgency=low
+
+  * New upstream release.
+    + makes default keys usable with azerty keyboards (closes: #198939).
+  * debian/rules: include cdbs rules before the class.
+
+ -- Jordi Mallach <jordi@debian.org>  Sun,  5 Oct 2003 00:36:34 +0200
+
+gtetrinet (0.7.4-1) unstable; urgency=low
+
+  * New upstream release.
+    + fixes a segfault when restoring default keys (closes: #205656).
+    + fixes a condition where the keyboard and game keys wouldn't work at
+      all when playing (closes: #205658).
+  * debian/control:
+    + bump debhelper build dependency to (>= 4.1.0).
+    + add cdbs to build-deps.
+    + bump Standards-Version to 3.6.1.0 (no changes).
+  * debian/rules: rewrite using CDBS.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 29 Aug 2003 02:09:32 +0200
+
+gtetrinet (0.7.3-2) unstable; urgency=low
+
+  * The icon saga goes on...
+  * debian/rules: I give up, and stop using datadir=${prefix}/share/games.
+    I seem to be the only one trying to do this (see gnome-games, etc.) and
+    it's causing way too many problems. So, installing stuff to
+    /usr/share/gtetrinet should make the icon appear again in gnome-panel.
+    If you think I'm violating a "must" in the FHS, please file a bug.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 23 Jun 2003 17:58:59 +0200
+
+gtetrinet (0.7.3-1) unstable; urgency=low
+
+  * New upstream release.
+    + fixes keyboard beeps.
+    + the gtetrinet icon is back.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 23 Jun 2003 15:53:59 +0200
+
+gtetrinet (0.7.2-1) unstable; urgency=low
+
+  * New upstream release.
+    + the connection progress window is now modal (closes: #195053).
+    + attack/defense keys can now be configured, helping Azerty keyboard
+      users.
+    + mouse cursor is now hidden on the playfields.
+  * debian/control: bump Standards-Version to 3.5.10.0 (no changes required).
+  * debian/rules: don't set icondir on install.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat,  7 Jun 2003 21:11:17 +0200
+
+gtetrinet (0.7.1-3) unstable; urgency=low
+
+  * debian/control: change section to gnome.
+  * debian/rules: define Applicationsdir on install, too (closes: #191181).
+
+ -- Jordi Mallach <jordi@debian.org>  Tue, 29 Apr 2003 10:42:36 +0200
+
+gtetrinet (0.7.1-2) unstable; urgency=low
+
+  * debian/rules:
+    + configure with --datadir=$prefix/share/games to install data (except
+      the gtetrinet icon) where the FHS mandates (closes: #190276). 
+    + define the correct gnulocaledir and icondir at compile and install
+      time.
+
+ -- Jordi Mallach <jordi@debian.org>  Sun, 27 Apr 2003 02:02:32 +0200
+
+gtetrinet (0.7.1-1) unstable; urgency=low
+
+  * New upstream release.
+    + fixes segfaults on tetridome.org (closes: #185543).
+    + fixes segfault when entering Unicode control characters into the
+      partyline (closes: #185905).
+  * debian/rules: do not export DEB_HOST_GNU_TYPE and DEB_BUILD_GNU_TYPE,
+    just define them.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 14 Apr 2003 19:44:05 +0200
+
+gtetrinet (0.7.0-1) unstable; urgency=low
+
+  * The "Aturem la Guerra" release, aka "Blockbomb on Bush, Blair and
+    Aznar by Oskuro".
+  * New upstream release.
+    + works around locale-related segfaults (closes: #178089).
+  * debian/control: Standards-Version: 3.5.9.0 (no changes).
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 17 Mar 2003 13:30:49 +0100
+
+gtetrinet (0.6.2-1) unstable; urgency=low
+
+  * New upstream release, skipped buggy 0.6.1.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri,  7 Feb 2003 23:52:54 +0100
+
+gtetrinet (0.6.0-2) unstable; urgency=low
+
+  * The "At least, I missed dinstall..." release.
+  * debian/rules: configure with --sysconfdir=/etc, to fix a brown paper bag
+    bug.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed,  5 Feb 2003 01:01:23 +0100
+
+gtetrinet (0.6.0-1) unstable; urgency=low
+
+  * New upstream release.
+    + fixes focus issues on partyline (closes: #176358).
+  * debian/rules: install with GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1.
+  * debian/postinst: register gconf schemas on configure.
+  * Segfaults on some partyline commands appear to be fixed (not by GTetrinet,
+    maybe in glib or something else) (closes: #178089).
+
+ -- Jordi Mallach <jordi@debian.org>  Tue,  4 Feb 2003 20:40:06 +0100
+
+gtetrinet (0.5.2-1) unstable; urgency=low
+
+  * New upstream release.
+    + includes the connect segfault fixed in 0.5.1-2.
+    + shows error dialogs if you try to connect without a spectator password
+      or invalid or no nickname and teamname (closes: #175621).
+    + keyboard handling improved, state of shift is now ignored so you can
+      use it as a game key (closes: #175622).
+  * debian/gtetrinet.xpm: removed, not policy compliant, and xtifr's try
+    with the allowed pallete didn't look good. Thanks anyway.
+  * debian/menu: removed icon.
+  * debian/rules: don't install debian/gtetrinet.xpm.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 11 Jan 2003 16:44:05 +0100
+
+gtetrinet (0.5.1-2) unstable; urgency=low
+
+  * The "What a horde of addicts" release.
+  * src/dialog.c: patch from Ian Zink, fix segfault caused by a null pointer
+    exception (closes: none, because everyone just whines on IRC :).
+
+ -- Jordi Mallach <jordi@debian.org>  Wed,  8 Jan 2003 14:26:08 +0100
+
+gtetrinet (0.5.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon,  6 Jan 2003 20:21:46 +0100
+
+gtetrinet (0.5.0-2) unstable; urgency=low
+
+  * debian/control: sigh, forgot to Build-Depend on autotools-dev. 
+
+ -- Jordi Mallach <jordi@debian.org>  Mon,  6 Jan 2003 01:53:18 +0100
+
+gtetrinet (0.5.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * This version is based on the GNOME 2 platform, so configuration now
+    resides in ~/.gnome2/gtetrinet. Moving your ~/.gnome/gtetrinet should be
+    enough to keep your old config.
+  * debian/changelog: added changelogs for security releases.
+  * debian/control:
+    + adapt build-depends for GNOME 2.
+    + Standards-Version: 3.5.8.0 (no changes).
+  * debian/docs: added AUTHORS and TODO.
+  * debian/rules:
+    + pass DEB_HOST_GNU_TYPE and DEB_BUILD_GNU_TYPE to the configure script.
+    + symlink updated config.guess and config.sub from autotools-dev at
+      configure time.
+    + use $(DESTDIR), not $(prefix), at install time.
+    + add a configure target.
+    + unset DH_COMPAT.
+  * debian/compat: use DH_COMPAT=4.
+  * src/dialogs.c: post-0.5.0 fix so you can connect again after
+    having disconnected.
+
+ -- Jordi Mallach <jordi@debian.org>  Sun,  5 Jan 2003 23:30:42 +0100
+
+gtetrinet (0.4.4-1) unstable; urgency=HIGH
+
+  * New upstream release.
+  * This version fixes several buffer overflows which were remotely
+    exploitable by malicious tetrinet servers.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 28 Oct 2002 00:40:24 +0100
+
+gtetrinet (0.4.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: drop gettext build-dep.
+  * debian/rules:
+    + configure with --enable-ipv6.
+    + don't remove po/ca.gmo anymore.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 21 Oct 2002 12:45:24 +0200
+
+gtetrinet (0.4.2-2) unstable; urgency=low
+
+  * Backported patch from CVS which fixes much of the new i18n support.
+  * debian/control: Build-Depend on gettext, as po/ca.po is modified.
+  * debian/rules: remove po/ca.gmo on clean.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 17 Oct 2002 17:19:42 +0200
+
+gtetrinet (0.4.2-1) unstable; urgency=low
+
+  * New upstream release, at long last.
+  * ESD support is fixed in this version (closes: #164945).
+  * debian/control: removed automake and autoconf from Build-Depends:,
+    versioned debhelper's to (>= 4.0.0).
+  * debian/copyright: changed download URL and specify a single "Author".
+  * debian/docs: added NEWS.
+  * debian/gtetrinet.6: removed, included upstream.
+  * debian/manpages: removed.
+  * debian/rules:
+    + comment out dh_installman and dh_link calls.
+    + specify mandir when configuring.
+
+ -- Jordi Mallach <jordi@debian.org>  Thu, 17 Oct 2002 12:59:32 +0200
+
+gtetrinet (0.4.1-10) unstable; urgency=low
+
+  * The "dedicated to the Hurd bunny" release. :)
+  * debian/control:
+    + Suggests: tetrinetx.
+    + Standards-Version: 3.5.7.0.
+  * debian/gtetrinet.6: replace notes about tetrinetx's licensing problems
+    with the url of the SourceForge project.
+  * debian/rules:
+    + support DEB_BUILD_OPTIONS="noopt", drop "debug".
+    + DH_COMPAT=4.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 12 Oct 2002 22:58:39 +0200
+
+gtetrinet (0.4.1-9woody1.1) stable-security; urgency=high
+
+  * Rebuild by security team since source-only uploads are not
+    supported
+  * Update Build-Depends
+
+ -- Wichert Akkerman <wakkerma@debian.org>  Sun,  8 Dec 2002 15:07:59 +0100
+
+gtetrinet (0.4.1-9woody1) stable-security; urgency=HIGH
+
+  * Apply patch from James Antill to fix multiple buffer overflows
+    (Buqtraq ID: 6062).
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 18 Nov 2002 12:55:32 +0100
+
+gtetrinet (0.4.1-9) unstable; urgency=low
+
+  * src/tetrinet.c: make a variable 'signed char' to avoid problems in
+    arm, powerpc and s390. Thanks to Gerhard Tonn for the warning.
+  * debian/changelog: removed emacs stuff.
+  * debian/rules: removed dh_make cruft.
+
+ -- Jordi Mallach <jordi@debian.org>  Mon, 14 Jan 2002 17:23:03 +0100
+
+gtetrinet (0.4.1-8) unstable; urgency=low
+
+  * debian/gtetrinet.6: fixes from Brett Smith:
+    + "Clear line" removes lines from the bottom of the puzzle, not the top.
+    + typo fix: "significatively" -> "significantly".
+    (closes: #115162)
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 10 Oct 2001 19:31:38 +0200
+
+gtetrinet (0.4.1-7) unstable; urgency=low
+
+  * debian/gtetrinet.6: extended documentation about Tetrinet servers
+    and added an explanation of every special block (closes: #113637).
+  * debian/control: Standards-Version: 3.5.6.0 (no changes).
+  * src/commands.c: removed a "\t" which was showing up as a weird
+    character in the About dialog.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat,  6 Oct 2001 21:19:02 +0200
+
+gtetrinet (0.4.1-6) unstable; urgency=low
+
+  * debian/control:
+    + changed Build-Depends, replaced libdb2-dev by libdb3-dev, as needed
+      by libgnome-dev and removed some redundant ones (closes: #96975)
+    + Bumped Standards-Version to 3.5.4.0
+  * debian/gtetrinet.6: wrote a new manpage (closes: #96399).
+  * debian/rules:
+    + DH_COMPAT=3
+    + install the new manpage
+    + removed obsolete dh_* calls
+  * Rebuilt with newer gnomelibs.
+
+ -- Jordi Mallach <jordi@debian.org>  Sat, 12 May 2001 02:29:58 +0200
+
+gtetrinet (0.4.1-5) unstable; urgency=low
+
+  * Added missing Build-Depends (closes: #79430).
+  * Build-Depends addition in -4 closes: #76608, as I expected.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed, 13 Dec 2000 03:21:51 +0100
+
+gtetrinet (0.4.1-4) unstable; urgency=low
+
+  * debian/rules:
+    + add support for DEB_BUILD_OPTIONS "debug" and "nostrip".
+    + replaced `pwd`'s with $(CURDIR)s.
+  * debian/control:
+    + added Build-Depends.
+    + bump Standards-Version to 3.2.1.0.
+  * debian/copyright: update upstream's email address.
+  * debian/dirs: removed AUTHORS, NEWS and INSTALL.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed,  6 Dec 2000 03:43:02 +0100
+
+gtetrinet (0.4.1-3) unstable; urgency=low
+
+  * Apply the addline and blockquake patch correctly, a small bit was left
+    out.
+
+ -- Jordi Mallach <jordi@debian.org>  Wed,  2 Aug 2000 17:12:20 +0200
+
+gtetrinet (0.4.1-2) unstable; urgency=low
+
+  * Recompile against a propper zlib. A bug in zlib1g-dev messed up the
+    Depends: line.
+  * src/tetris.c: apply patch from Pihvi which makes line additions more
+    tetrinet-like.
+  * debian/rules: use debhelper v2, install the deb in debian/gtetrinet.
+
+ -- Jordi Mallach <jordi@debian.org>  Tue,  1 Aug 2000 22:47:08 +0200
+
+gtetrinet (0.4.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * First version uploaded to Debian.
+  * debian/control: changed my email address.
+  * Create gtetrinet.xpm basing on gtetrinet.png, for use with Debian
+    Menus. Modified debian/menu an debian/rules accordingly.
+
+ -- Jordi Mallach <jordi@debian.org>  Fri, 14 Jul 2000 14:55:16 +0200
+
+gtetrinet (0.4-1) unstable; urgency=low
+
+  * New upstream release.
+  * Adds 'spectator mode'.
+
+ -- Jordi Mallach <jordi@sindominio.net>  Wed, 22 Dec 1999 02:20:52 +0100
+
+gtetrinet (0.3-2) unstable; urgency=low
+
+  * Policy fixes:
+    + fhs: binary installs into /usr/games.
+    + manpage is in section 6.
+  * Removed my second surname from the maintainer's name.
+  * debian/copyright: updated upstream maintainer's e-mail address.
+
+ -- Jordi Mallach <jordi@sindominio.net>  Sat, 18 Dec 1999 17:35:52 +0100
+
+gtetrinet (0.3-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Jordi Mallach Pérez <jordi@sindominio.net>  Sun, 12 Dec 1999 22:16:13 +0100

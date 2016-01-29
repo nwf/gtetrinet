@@ -1,0 +1,26 @@
+Source: gtetrinet
+Section: gnome
+Priority: optional
+Maintainer: Jordi Mallach <jordi@debian.org>
+Uploaders: @GNOME_TEAM@
+Build-Depends: autotools-dev,
+               cdbs,
+               debhelper (>= 8),
+               dh-autoreconf,
+               gettext,
+               gnome-pkg-tools,
+               libgnome2-dev (>= 2.0.0),
+               libgnomeui-dev (>= 2.0.0),
+               libgtk2.0-dev (>= 2.6),
+               libxml-parser-perl
+Standards-Version: 3.9.2
+Homepage: http://gtetrinet.sourceforge.net/
+
+Package: gtetrinet
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Suggests: tetrinetx
+Description: multiplayer tetris-like game
+ GTetrinet is a clone of Tetrinet, a multiplayer tetris variant for Windows.
+ It is compatible with the original tetrinet, although you need a separate
+ program, such as tetrinetx, to be able to create your own games.
