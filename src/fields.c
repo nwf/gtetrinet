@@ -48,7 +48,7 @@ static gint fields_nextpiece_expose (GtkWidget *widget);
 static gint fields_specials_expose (GtkWidget *widget);
 
 static void fields_refreshfield (int field);
-static void fields_drawblock (int field, int x, int y, char block);
+void fields_drawblock (int field, int x, int y, char block);
 
 static void gmsginput_activate (void);
 
@@ -361,10 +361,8 @@ void fields_drawfield (int field, FIELD newfield)
     int x, y;
     for (y = 0; y < FIELDHEIGHT; y ++)
         for (x = 0; x < FIELDWIDTH; x ++)
-            if (newfield[y][x] != displayfields[field][y][x]) {
                 fields_drawblock (field, x, y, newfield[y][x]);
                 displayfields[field][y][x] = newfield[y][x];
-            }
 }
 
 void fields_drawblock (int field, int x, int y, char block)

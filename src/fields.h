@@ -22,3 +22,7 @@ extern void fields_gmsginput (int i);
 extern void fields_gmsginputclear (void);
 extern void fields_gmsginputactivate (int i);
 extern const char *fields_gmsginputtext (void);
+
+
+//AF
+extern void fields_drawblock (int field, int x, int y, char block);

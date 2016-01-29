@@ -165,6 +165,32 @@ void tetris_drawcurrentblock (void)
     if (blocknum >= 0)
         placeblock (field, blocknum, blockorient, blockx, blocky);
     fields_drawfield (playerfield(playernum), field);
+
+
+    // AF: make shadow
+    FIELD shadowfield;
+    int x, y, y1, f;
+
+    if (blocknum < 0) return;
+
+    y1=0;
+    while (!blockobstructed(fields[playernum], blocknum, blockorient, blockx, y1))
+	    y1++;
+    y1--;
+
+    if (y1-4<=blocky) return;
+
+    copyfield (shadowfield, field);
+    if (blocknum >= 0)
+        placeblock (shadowfield, blocknum, blockorient, blockx, y1);
+    f = playerfield(playernum);
+
+    for (y = 0; y < FIELDHEIGHT; y ++)
+        for (x = 0; x < FIELDWIDTH; x ++)
+            if (shadowfield[y][x] != fields[playernum][y][x]) {
+                fields_drawblock (f, x, y, shadowfield[y][x]);
+            }
+
 }
 
 int tetris_makeblock (int block, int orient)
