@@ -102,6 +102,11 @@ keys_special6_changed (GConfClient *client,
                    GConfEntry *entry);
 
 void
+keys_special_self_changed (GConfClient *client,
+                   guint cnxn_id,
+                   GConfEntry *entry);
+
+void
 partyline_enable_timestamps_changed (GConfClient *client,
                                      guint cnxn_id,
                                      GConfEntry *entry);
@@ -131,6 +136,7 @@ typedef enum
   K_SPECIAL4,
   K_SPECIAL5,
   K_SPECIAL6,
+  K_SPECIAL_SELF,
 /* not a key but the number of configurable keys */
   K_NUM
 } GTetrinetKeys;

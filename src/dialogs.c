@@ -548,6 +548,7 @@ void prefdialog_drawkeys (void)
     actions[K_SPECIAL4] = _("Special to field 4");
     actions[K_SPECIAL5] = _("Special to field 5");
     actions[K_SPECIAL6] = _("Special to field 6");
+    actions[K_SPECIAL_SELF] = _("Special to self");
   
     gconf_keys[K_RIGHT]    = g_strdup ("/apps/gtetrinet/keys/right");
     gconf_keys[K_LEFT]     = g_strdup ("/apps/gtetrinet/keys/left");
@@ -563,6 +564,7 @@ void prefdialog_drawkeys (void)
     gconf_keys[K_SPECIAL4] = g_strdup ("/apps/gtetrinet/keys/special4");
     gconf_keys[K_SPECIAL5] = g_strdup ("/apps/gtetrinet/keys/special5");
     gconf_keys[K_SPECIAL6] = g_strdup ("/apps/gtetrinet/keys/special6");
+    gconf_keys[K_SPECIAL_SELF] = g_strdup ("/apps/gtetrinet/keys/special_self");
 
     for (i = 0; i < K_NUM; i ++) {
         gtk_list_store_append (keys_store, &iter);

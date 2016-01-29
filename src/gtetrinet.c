@@ -210,6 +210,10 @@ int main (int argc, char *argv[])
                              (GConfClientNotifyFunc) keys_special6_changed,
 			     NULL, NULL, NULL);
 
+    gconf_client_notify_add (gconf_client, "/apps/gtetrinet/keys/special_self",
+                             (GConfClientNotifyFunc) keys_special_self_changed,
+                            NULL, NULL, NULL);
+
     gconf_client_notify_add (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps",
                              (GConfClientNotifyFunc) partyline_enable_timestamps_changed,
 			     NULL, NULL, NULL);

@@ -72,7 +72,8 @@ guint defaultkeys[K_NUM] = {
     GDK_3,
     GDK_4,
     GDK_5,
-    GDK_6
+    GDK_6,
+    GDK_s
 };
 
 guint keys[K_NUM];
@@ -367,6 +368,14 @@ void config_loadconfig (void)
     else
       keys[K_SPECIAL6] = defaultkeys[K_SPECIAL6];
 
+    p = gconf_client_get_string (gconf_client, "/apps/gtetrinet/keys/special_self", NULL);
+    if (p)
+    {
+      keys[K_SPECIAL_SELF] = gdk_keyval_to_lower (gdk_keyval_from_name (p));
+      g_free (p);
+    }
+    else
+      keys[K_SPECIAL_SELF] = defaultkeys[K_SPECIAL_SELF];
 
     /* Get the timestamp option. */
     timestampsenable = gconf_client_get_bool (gconf_client, "/apps/gtetrinet/partyline/enable_timestamps", NULL);
@@ -622,6 +631,18 @@ keys_special6_changed (GConfClient *client,
   cnxn_id = cnxn_id;
 
   keys[K_SPECIAL6] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
+}
+
+void
+keys_special_self_changed (GConfClient *client,
+                       guint cnxn_id,
+                       GConfEntry *entry)
+{
+
+  client = client;
+  cnxn_id = cnxn_id;
+
+  keys[K_SPECIAL_SELF] = gdk_keyval_to_lower (gdk_keyval_from_name (gconf_value_get_string (gconf_entry_get_value (entry))));
 }
 
 void
